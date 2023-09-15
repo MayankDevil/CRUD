@@ -6,25 +6,36 @@
 -->
 <?php
 
-    if($tables = mysqli_query($connection,"SHOW Tables"))
-    {
-        $isTableGet = false;
-        
-        while ($tableheader = mysqli_fetch_assoc($tables))
-        {
-            // print_r($tableheader);
-            
-            if ($tableheader['Tables_in_test'] == 'test')
-            {
-                $isTableGet = true;
-            }
-            // print_r("<div>".$tableheader['Tables_in_test']."</div>");
+if ($tables = mysqli_query($connection, "SHOW Tables")) {
+
+    $isTableGet = false;
+
+    while ($tableheader = mysqli_fetch_assoc($tables)) {
+        // print_r($tableheader);
+
+        if ($tableheader['Tables_in_test'] == 'mytable') {
+            $isTableGet = true;
         }
-        if (!($isTableGet))
-        {
-            $query = "Create Table myTable2(id int, username char(30), passcode  char(30), contact int(11), emailid char(30))";
-        }
+        // print_r("<div>".$tableheader['Tables_in_test']."</div>");
     }
+    if (!($isTableGet)) {
+        $query = "Create Table mytable(
+            id int NOT NULL AUTO_INCREMENT,
+            username char(30),
+            passcode  char(30),
+            contact int(11),
+            emailid char(30),
+            PRIMARY KEY (id)
+        )";
+        // $query = "Create Table mytable(
+        //     username char(30),
+        //     passcode  char(30),
+        //     contact int(11),
+        //     emailid char(30)
+        // )";
+
+    }
+}
 
 ?>
 <!--  the end -->

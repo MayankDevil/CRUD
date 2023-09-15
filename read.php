@@ -9,14 +9,15 @@
 
 <head>
 	<meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title> MayankDevil </title>
-    <!--
-    	---------
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title> MayankDevil </title>
+	<!--
+		---------
 		| style |
 		---------
-    -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+	-->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 	<link rel="stylesheet" href="style.css">
 </head>
 
@@ -30,7 +31,21 @@
 	<div class="container">
 
 		<?php
-			include("./header.php");
+		
+		    include("./header.php");
+
+		    try
+		    {
+			    require('./connection.php');
+		    }
+		    catch (\Throwable $th)
+		    {
+			    die("<div class='alert alert-danger w-25 m-5 mx-auto'> $th </div>");
+		    }
+		    
+		    $result = mysqli_connect($connection,"SELECT * FROM mytable");
+		    
+		    
 		?>
 		<!--
 			------------------
@@ -41,14 +56,20 @@
 
 			<div class='conatiner'></div>
 
+            <?php
+            
+                if (mysqli_num_rows($result) > 0)
+		        {
+            
+            ?>
 			<table class='table'>
 
 				<thead>
 					<th> ID </th>
 					<th> NAME </th>
-					<th> PASSWORD </th>
 					<th> EMAIL </th>
 					<th> NUMBER </th>
+					<th> ACTION </th>
 				</thead>
 				<!--
 					--------------
@@ -57,13 +78,29 @@
 				-->
 				<tbody>
 
-					<tr>
-						<td> 1 </td>
-						<td> Hero </td>
-						<td> 1234Seven </td>
-						<td> fake@gmail.com </td>
-						<td> 9211420420 </td>
-					</tr>
+					<?php
+					
+					    while ($row = mysli_fetch_assoc($result))
+					    {
+					
+					?>
+
+                    <tr>
+                        <tr> <?php echo $row['id']; ?> </tr>
+                        <tr> <?php echo $row['username']; ?> </tr>
+                        <tr> <?php echo $row['number']; ?> </tr>
+                        <tr> <?php echo $row['email']; ?> </tr>
+                        <tr> 
+                            <a href="update.php?id=<?php echo $row['id']; ?>" class="btn btn-sm btn-success"> Update </a>
+                            <a href="#" class="btn btn-sm btn-danger"> Delete </a>
+                        </tr>
+                    </tr>					
+					
+					<?php
+					
+					    }
+					
+					?>
 
 				</tbody>
 
@@ -72,6 +109,22 @@
 				</tfoot>
 
 			</table>
+			
+			<?php
+			
+			    }
+			    else
+			    {
+			        echo ("<div class='alert alert-warning w-25 m-5 mx-auto'> Database Table is Emtpy! </div>");
+			    }
+			    
+			    if (mysqli_close($connection))
+			    {
+				    echo ("<div class='alert alert-success w-25 m-5 mx-auto'> Close Connection! </div>");
+				}
+				exit(); 
+			
+			?>
 
 
 		</div>
@@ -82,7 +135,9 @@
 		| script |
 		----------
 	-->
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+		crossorigin="anonymous"></script>
 	<script src="script.js"></script>
 
 </body>
