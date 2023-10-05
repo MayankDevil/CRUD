@@ -1,20 +1,20 @@
-# CRUD
+# website-7
 
-- Name : "Niyantran"
+- Name : "LearnCoreJava"
 
-- Description : "Real world Operation { Create | Retrive | Update | Delete } Database by PHP"
+- Description : "Learn Core Java with notes and source code example"
 
 - Version : 1.0
 
-- Update : 13-09-2023
+- Update : 23-09-2023
 
-- Status : ACTIVE
+- Status : Active
 
 - Responsive : False
 
-- TecStack : { HTML | CSS | JavaScript | Bootstrap }
+- TecStack : { HTML | CSS | JavaScript }
 
-- Thanks : { VSCode | GitHub | Bootstrap }
+- Thanks : { VSCode | GitHub | MayankDevil }
 
 - Work : Self
 
@@ -22,27 +22,27 @@
 
 - Developer : { Mayank }
 
-- CopyRight : { Mayank }
+- CopyRight : { ProCoders }
 
-- URL : none
+- URL : https://mayankdevil.github.io/website-7/
 
-- Clone : https://github.com/MayankDevil/website-19.git
+- Clone : https://github.com/MayankDevil/website-7.git
 
-- Download : https://github.com/MayankDevil/website-19/archive/refs/heads/main.zip
+- Download : https://github.com/MayankDevil/website-7/archive/refs/heads/main.zip
 
 ---
-<!--
-### Home Page
 
-![HomePage](./data/tourismHome.png "HomePage")
+### Web Page
 
-## Responsive
+![Alt text](./data/LearnCoreJava.png "HomePage")
 
-_this website is very responsive webpages, thanks by bootstrap framewrok_
+### Responsive
 
-**SCREEN** { 1200PX | 992PX | 785PX | 556PX }
+**Breakpoints** { 576 | 7681200 }
 
-## INFOMATION
+### Theme Mode
 
-_this is self preparation tourism imagination website develope for Competiiton with my teammate **vinay sharma** <https://github.com/VinaySharma77/> you checkout in my following_
--->
+_Green Black night theme_
+
+
+
