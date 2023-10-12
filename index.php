@@ -16,9 +16,8 @@
 		| style |
 		---------
 	-->
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
-		integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-	<link rel="stylesheet" href="style.css">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+	<link rel="stylesheet" href="css/style.css">
 </head>
 
 <body class="">
@@ -32,17 +31,16 @@
 
 		<?php
 		
-		    include("header.php");
+		    include("layout/header.php");		// header
 
-		    try
-		    {
-			    require('connection.php');
-		    }
-		    catch (\Throwable $th)
-		    {
-			    die("<div class='alert alert-danger w-25 m-5 mx-auto'> $th </div>");
-		    }
-		    
+			require('backend/connection.php');		// connection
+			
+			/*
+				---------------------------------------
+				| query | fetch table data 
+				---------------------------------------
+			*/
+			
 			$select_query = "SELECT * FROM mytable";
 
 		    $result = mysqli_query($connection,$select_query);
@@ -50,19 +48,17 @@
 		?>
 		<!--
 			------------------
-			| create section |
+			| table section |
 			------------------
 		-->
 		<div class='section my-5'>
 
-            <?php
-            
-                if (mysqli_num_rows($result) > 0)
-		        {
-            
+            <?php    
+                if (mysqli_num_rows($result) > 0) 
+				{
             ?>
-			<table class='table border-none'>
 
+			<table class='table border-none'>
 				<tr>
 					<th> ID </th>
 					<th> NAME </th>
@@ -71,65 +67,54 @@
 					<th> ACTION </th>
 				<tr>
 				<!--
-					--------------
-					| table body |
-					--------------
+					-----------------------------------------
+					| table body | fetch by database
+					----------------------------------------
 				-->
-
 				<?php
-				
 					while ($row = mysqli_fetch_assoc($result))
 					{
-				
+						if ($row['isActive'] == 1)
+						{
 				?>
-
+				<!-- [ START ] -->
 				<tr>
 					<td> <?php echo $row['id']; ?> </td>
 					<td> <?php echo $row['username']; ?> </td>
 					<td> <?php echo $row['emailid']; ?> </td>
 					<td> <?php echo $row['contact']; ?> </td>
-					<td class="btn-group"> 
-						<a href="update.php?id=<?php echo $row['id']; ?>" class="btn btn-sm btn-success"> Update </a>
+					<!-- ( action ) -->
+					<td class="btn-group d-block"> 
+						<a href="update.php?id=<?php echo $row['id']; ?>" class="btn btn-sm btn-success"> Update </a>	
 						<a href="delete.php?id=<?php echo $row['id']; ?>" class="btn btn-sm btn-danger"> Delete </a>
 					</td>
 				</tr>					
-				
+				<!-- [ END ] -->
 				<?php
-				
+						}
 					}
-				
+				}
+				else
+				{
+			        echo("<div class='alert alert-info w-25 m-5 mx-auto'> Database Table is Empty! &nbsp;&nbsp;&nbsp; (Signin) </div>");
+			    }
+				include("backend/closed.php"); // closed
 				?>
 			</table>
-			
-			<?php
-			
-			    }
-			    else
-			    {
-			        echo ("<div class='alert alert-warning w-25 m-5 mx-auto'> Database Table is Emtpy! </div>");
-			    }
-			    
-			    if (mysqli_close($connection))
-			    {
-				    echo ("<div class='alert alert-success w-25 m-5 mx-auto'> Close Connection! </div>");
-				}
-				exit(); 
-			
+
+			<?php 
+				include("layout/footer.php");		// footer
 			?>
 
-
 		</div>
-
 	</div>
 	<!--
 		----------
 		| script |
 		----------
 	-->
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
-		integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
-		crossorigin="anonymous"></script>
-	<script src="script.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+	<script src="js/script.js"></script>
 
 </body>
 
