@@ -1,20 +1,20 @@
-# website-7
+# PHP_CRUD
 
-- Name : "LearnCoreJava"
+- Name : "PHP_CRUD"
 
-- Description : "Learn Core Java with notes and source code example"
+- Description : "Learn to Understand PHP (Create|Retrive|Update|Delete) CRUD system"
 
-- Version : 1.0
+- Version : 1.5
 
-- Update : 23-09-2023
+- Update : 12-10-2023
 
 - Status : Active
 
 - Responsive : False
 
-- TecStack : { HTML | CSS | JavaScript }
+- TecStack : { HTML | CSS | JavaScript | Bootstrap | PHP | Database }
 
-- Thanks : { VSCode | GitHub | MayankDevil }
+- Thanks : { VSCode | GitHub | Bootstrap | PHP }
 
 - Work : Self
 
@@ -24,7 +24,7 @@
 
 - CopyRight : { ProCoders }
 
-- URL : https://mayankdevil.github.io/website-7/
+- URL : null 
 
 - Clone : https://github.com/MayankDevil/website-7.git
 
@@ -34,15 +34,38 @@
 
 ### Web Page
 
-![Alt text](./data/LearnCoreJava.png "HomePage")
+![Alt text](./data/index.png "HomePage")
 
-### Responsive
+## Feature
 
-**Breakpoints** { 576 | 7681200 }
+-   Full Stack Web Application
+
+-   Simple Understandable for execution
+
+-   Component Basic Architecture
+
+-   Secureity Set Struture
+
+-   Easy To Update
+
+-   Delete data is Erase
+
 
 ### Theme Mode
 
-_Green Black night theme_
+_Simple Bootstrap color theme combination with plain white background._
+
+### Requirement
+
+1-   __Database__   this require database like _sql_ & _phpMyAdmin_ etc.
+
+2-    __backend/connection.php__ set configration.
+
+
+
+
+
+
 
 
 
