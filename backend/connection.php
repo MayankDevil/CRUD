@@ -6,10 +6,10 @@
 -->
 <?php
 
-    $host = "localhost";
-    $username = "root";
+    $host = "sql105.infinityfree.com";
+    $username = "if0_36284680";
     $password = "";
-    $database = "test";
+    $database = "if0_36284680_crud";
 
     /*
         -----------------------------------------------
