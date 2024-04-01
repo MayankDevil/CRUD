@@ -96,7 +96,7 @@
 			    }
 			    else
 			    {
-			        echo("<div class='alert alert-warning w-25 m-5 mx-auto'> Unvalid data! </div>");
+			        echo("<div class='alert alert-warning w-50 m-5 mx-auto'> Unvalid data! </div>");
 			    }
 				
 				include("backend/closed.php"); // closed    

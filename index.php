@@ -96,7 +96,7 @@
 				}
 				else
 				{
-			        echo("<div class='alert alert-info w-25 m-5 mx-auto'> Database Table is Empty! &nbsp;&nbsp;&nbsp; (Signin) </div>");
+			        echo("<div class='alert alert-info w-50 m-5 mx-auto'> Database Table is Empty! &nbsp;&nbsp;&nbsp; (Signin) </div>");
 			    }
 				include("backend/closed.php"); // closed
 				?>

@@ -21,7 +21,7 @@
 
     if (!$connection)
     {
-        die("<div class='alert alert-warning w-25 m-5 mx-auto'> Connection Unestablished! </div>");
+        die("<div class='alert alert-warning w-50 m-5 mx-auto'> Connection Unestablished! </div>");
     }
 ?>
 <!-- the end -->

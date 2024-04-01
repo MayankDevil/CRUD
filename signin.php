@@ -96,7 +96,7 @@
 
             if (!($result > 0))
             {
-                echo ("<div class='alert alert-danger w-25 m-5 mx-auto'> Data Not Inserted </div>");
+                echo ("<div class='alert alert-danger w-50 m-5 mx-auto'> Data Not Inserted </div>");
             }
             
             include("backend/closed.php"); // closed

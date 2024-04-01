@@ -48,7 +48,7 @@
 
         if (!(mysqli_num_rows($user_code) > 0))
         {
-            echo("<div class='alert alert-danger w-25 m-5 mx-auto'> Data Not Updated </div>");
+            echo("<div class='alert alert-danger w-50 m-5 mx-auto'> Data Not Updated </div>");
         }
     ?> 
     <!--
